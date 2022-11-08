@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const AllSurvices = () => {
     const allServices = useLoaderData();
@@ -21,7 +21,7 @@ const AllSurvices = () => {
                             <p>Details: {service.details.slice(0, 100) + '...'}</p>
                             <p>Price: <span className='font-bold'>{service.price}</span> BDT</p>
                             <div className="card-actions justify-end">
-                                <button className="btn btn-primary">View Details</button>
+                                <Link to={`/service/${service._id}`} ><button className="btn btn-primary">View Details</button></Link>
                             </div>
                         </div>
                     </div>)

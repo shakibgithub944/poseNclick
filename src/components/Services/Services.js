@@ -28,7 +28,7 @@ const Services = () => {
                             <p>Details: {service.details.slice(0,100)+'...'}</p>
                             <p>Price: <span className='font-bold'>{service.price}</span> BDT</p>
                             <div className="card-actions justify-end">
-                                <button className="btn btn-primary">View Details</button>
+                            <Link to={`/service/${service._id}`} ><button className="btn btn-primary">View Details</button></Link>
                             </div>
                         </div>
                     </div>)

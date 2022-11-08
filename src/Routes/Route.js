@@ -5,6 +5,7 @@ import Home from "../components/Home/Home";
 import Login from "../components/Login/Login";
 import Root from "../components/Main/Root";
 import Register from "../components/Register/Register";
+import ServiceDetails from "../components/ServiceDetails/ServiceDetails";
 import Services from "../components/Services/Services";
 
 const router = createBrowserRouter([
@@ -29,6 +30,13 @@ const router = createBrowserRouter([
                 element: <AllSurvices></AllSurvices>,
                 loader: () => {
                     return fetch('http://localhost:5000/all-services');
+                }
+            },
+            {
+                path: '/service/:id',
+                element: <ServiceDetails></ServiceDetails>,
+                loader: ({ params }) => {
+                    return fetch(`http://localhost:5000/all-services/${params.id}`)
                 }
             },
             {
