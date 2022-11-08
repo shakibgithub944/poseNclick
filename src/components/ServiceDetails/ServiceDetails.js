@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { Toast } from 'react-hot-toast';
 
 const ServiceDetails = () => {
     const serviceDetails = useLoaderData();
@@ -10,7 +11,7 @@ const ServiceDetails = () => {
                 <div className="card lg:card-side bg-base-100 w-full p-12">
                     <figure><img src={serviceDetails.picture} alt="Album" /></figure>
                     <div className="card-body">
-                        <h2 className="card-title">{serviceDetails.name}</h2>
+                        <h2 className="card-title text-3xl">{serviceDetails.name}</h2>
                         <p>{serviceDetails.details}</p>
                         <p>Duration:{serviceDetails.duration}</p>
                         <p>Price: <span className='font-bold'>{serviceDetails.price}</span> BDT</p>

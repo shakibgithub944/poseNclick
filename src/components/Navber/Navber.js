@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { authContext } from '../../UserContext/UserContext';
 import navimg from '../asset/navimg.png'
 
 const Navber = () => {
+    const { user } = useContext(authContext)
+
     return (
         <div>
-            <div className="navbar bg-gray-400 text-white">
+            <div className="navbar bg-zinc-600 text-black">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -15,11 +18,12 @@ const Navber = () => {
                             <li><Link to='/home'>Home</Link></li>
                             <li><Link to='/services'>Services</Link> </li>
                             <li><Link to='/blog'>Blog</Link> </li>
+                            
 
                         </ul>
                     </div>
                     <div className='flex'>
-                        <img src={navimg} alt=""  className='h-12 w-52'  />
+                        <img src={navimg} alt="" className='h-12 w-52' />
                         <Link to='/' className="text-xl">Pose N Click</Link>
                     </div>
                 </div>
@@ -31,6 +35,7 @@ const Navber = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
+                    <p>{}</p>
                     <Link to='/login' className="btn">Log in</Link>
                 </div>
             </div>
