@@ -53,7 +53,7 @@ const Register = () => {
                             <label htmlFor="password" className="block dark:text-gray-400">Password</label>
                             <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md border border-gray-700 text-black focus:border-violet-400" required />
                         </div>
-                        <p className="bg-red-400">{error}</p>
+                        <p className="text-red-400">{error}</p>
                         <button className="block w-full p-3 text-center rounded-sm text-black border">Sign up</button>
                     </form>
                     <div className="flex items-center pt-4 space-x-1">

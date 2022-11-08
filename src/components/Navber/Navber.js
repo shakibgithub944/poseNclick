@@ -4,7 +4,14 @@ import { authContext } from '../../UserContext/UserContext';
 import navimg from '../asset/navimg.png'
 
 const Navber = () => {
-    const { user } = useContext(authContext)
+    const { user, logOutUser } = useContext(authContext);
+    // console.log(user)
+
+    const handleLogOut = () => {
+        logOutUser()
+            .then(() => { })
+            .catch(() => { })
+    }
 
     return (
         <div>
@@ -18,8 +25,6 @@ const Navber = () => {
                             <li><Link to='/home'>Home</Link></li>
                             <li><Link to='/services'>Services</Link> </li>
                             <li><Link to='/blog'>Blog</Link> </li>
-                            
-
                         </ul>
                     </div>
                     <div className='flex'>
@@ -35,8 +40,17 @@ const Navber = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <p>{}</p>
-                    <Link to='/login' className="btn">Log in</Link>
+                    {
+                        user?.email? <p className='mr-12 font-bold'>{user.email}</p>
+                        :
+                        ''
+                    }
+
+                    {
+                        user?.uid? <li onClick={handleLogOut} className="btn">Log Out</li>
+                            :
+                            <Link to='/login' className="btn">Log in</Link>
+                    }
                 </div>
             </div>
         </div>
