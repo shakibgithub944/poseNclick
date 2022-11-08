@@ -26,7 +26,10 @@ const router = createBrowserRouter([
             },
             {
                 path: '/services',
-                element: <AllSurvices></AllSurvices>
+                element: <AllSurvices></AllSurvices>,
+                loader: () => {
+                    return fetch('http://localhost:5000/all-services');
+                }
             },
             {
                 path: '/login',
