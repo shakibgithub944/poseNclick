@@ -1,17 +1,37 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { authContext } from '../../UserContext/UserContext';
 
 const Login = () => {
+    const [error, setError] = useState('');
+    const { loginUser } = useContext(authContext)
+
+    const handleLogIn = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        loginUser(email, password)
+            .then(result => {
+                console.log(result.user);
+                form.reset();
+            })
+            .catch(err => {
+                setError(err.message)
+                console.log(err);
+            })
+    }
+
     return (
         <div className='grid grid-cols-3 gap-5 m-12'>
             <div></div>
             <div>
                 <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:text-gray-100 border">
                     <h1 className="text-2xl font-bold text-center text-black">Login</h1>
-                    <form novalidate="" action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
+                    <form onSubmit={handleLogIn} action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
                         <div className="space-y-1 text-sm">
                             <label for="username" className="block dark:text-gray-400">Username</label>
-                            <input type="text" name="username" id="username" placeholder="Username" className="w-full px-4 py-3 rounded-md border border-gray-700 text-black focus:border-violet-400" />
+                            <input type="email" name="email" id="username" placeholder="Email" className="w-full px-4 py-3 rounded-md border border-gray-700 text-black focus:border-violet-400" />
                         </div>
                         <div className="space-y-1 text-sm">
                             <label for="password" className="block dark:text-gray-400">Password</label>
@@ -20,6 +40,7 @@ const Login = () => {
                                 <Link rel="noopener noreferrer" to="">Forgot Password?</Link>
                             </div>
                         </div>
+                        <p className="bg-red-400">{error}</p>
                         <button className="block w-full p-3 text-center rounded-sm text-black border">Login</button>
                     </form>
                     <div className="flex items-center pt-4 space-x-1">

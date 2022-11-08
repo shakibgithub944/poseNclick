@@ -1,30 +1,59 @@
-import React from 'react';
+import toast from 'react-hot-toast'
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { authContext } from '../../UserContext/UserContext';
 
 const Register = () => {
+    const [error, setError] = useState('');
+    const { createUser } = useContext(authContext);
+
+    const handleSignUpUser = (e) => {
+        e.preventDefault()
+        const form = e.target;
+        const name = form.name.value;
+        const photourl = form.photourl.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        // console.log(name, photourl, email, password)
+        createUser(email, password)
+            .then(result => {
+                toast.success('successfully registerd');
+                form.reset();
+                console.log(result.user)
+            })
+            .catch(err => {
+                setError(err.message)
+                console.log(err)
+            })
+
+
+    }
+
+
     return (
         <div className='grid grid-cols-3 gap-5 m-12'>
             <div></div>
             <div>
                 <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:text-gray-100 border">
                     <h1 className="text-2xl font-bold text-center text-black">Sign Up</h1>
-                    <form novalidate="" action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
+                    <form onSubmit={handleSignUpUser} action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
                         <div className="space-y-1 text-sm">
                             <label htmlFor="fullName" className="block dark:text-gray-400">Full Name</label>
                             <input type="text" name="name" id="fullName" placeholder="Full Name" className="w-full px-4 py-3 rounded-md border border-gray-700 text-black focus:border-violet-400" required />
                         </div>
                         <div className="space-y-1 text-sm">
                             <label htmlFor="photourl" className="block dark:text-gray-400">Photo Url</label>
-                            <input type="text" name="photourl" id="photourl" placeholder="Photo url" className="w-full px-4 py-3 rounded-md border border-gray-700 text-black focus:border-violet-400" required/>
+                            <input type="text" name="photourl" id="photourl" placeholder="Photo url" className="w-full px-4 py-3 rounded-md border border-gray-700 text-black focus:border-violet-400" required />
                         </div>
                         <div className="space-y-1 text-sm">
                             <label htmlFor="username" className="block dark:text-gray-400">Email</label>
-                            <input type="email" name="email" id="username" placeholder="Email" className="w-full px-4 py-3 rounded-md border border-gray-700 text-black focus:border-violet-400" required/>
+                            <input type="email" name="email" id="username" placeholder="Email" className="w-full px-4 py-3 rounded-md border border-gray-700 text-black focus:border-violet-400" required />
                         </div>
                         <div className="space-y-1 text-sm">
                             <label htmlFor="password" className="block dark:text-gray-400">Password</label>
-                            <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md border border-gray-700 text-black focus:border-violet-400" required/>
+                            <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md border border-gray-700 text-black focus:border-violet-400" required />
                         </div>
+                        <p className="bg-red-400">{error}</p>
                         <button className="block w-full p-3 text-center rounded-sm text-black border">Sign up</button>
                     </form>
                     <div className="flex items-center pt-4 space-x-1">
