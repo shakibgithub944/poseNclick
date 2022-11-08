@@ -1,10 +1,13 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
-import { Toast } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 const ServiceDetails = () => {
     const serviceDetails = useLoaderData();
-
+    const notify = () => {
+        toast('Here is your toast.')
+        alert('..........')
+    };
     return (
         <div>
             <div>
@@ -16,7 +19,7 @@ const ServiceDetails = () => {
                         <p>Duration:{serviceDetails.duration}</p>
                         <p>Price: <span className='font-bold'>{serviceDetails.price}</span> BDT</p>
                         <div className="card-actions justify-end">
-                            <button className="btn btn-primary">Buy Now</button>
+                            <button onClick={notify} className="btn btn-primary">Buy Now</button>
                         </div>
                     </div>
                 </div>

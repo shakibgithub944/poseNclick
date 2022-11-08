@@ -42,7 +42,6 @@ const UserContext = ({ children }) => {
       })
     }
 
-
     const authInfo = {
         user,
         createUser,
@@ -50,7 +49,6 @@ const UserContext = ({ children }) => {
         googleSignIn,
         logOutUser,
         updateUser,
-
 
     }
     return (
