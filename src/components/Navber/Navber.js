@@ -41,7 +41,7 @@ const Navber = () => {
                 </div>
                 <div className="navbar-end">
                     {
-                        user?.email? <p className='mr-12 font-bold'>{user.email}</p>
+                        user?.displayName? <p className='mr-12 font-bold'>{user.displayName}</p>
                         :
                         ''
                     }

@@ -6,7 +6,6 @@ const Login = () => {
     const [error, setError] = useState('');
     const { loginUser, googleSignIn } = useContext(authContext);
 
-
     const handleLogIn = (e) => {
         e.preventDefault();
         const form = e.target;
