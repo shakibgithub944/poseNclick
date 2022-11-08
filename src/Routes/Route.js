@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import AllSurvices from "../components/AllServices/AllSurvices";
 import Blog from "../components/Blog/Blog";
 import Home from "../components/Home/Home";
 import Login from "../components/Login/Login";
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/services',
-                element: <Services></Services>
+                element: <AllSurvices></AllSurvices>
             },
             {
                 path: '/login',
