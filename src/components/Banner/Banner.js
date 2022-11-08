@@ -1,5 +1,4 @@
 import React from 'react';
-import banner from '../asset/banner.jpg';
 import love4 from '../asset/love4.jpg'
 
 const Banner = () => {

@@ -1,4 +1,5 @@
-import toast from 'react-hot-toast'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { authContext } from '../../UserContext/UserContext';
@@ -26,7 +27,7 @@ const Register = () => {
                    console.log(error)
                   });
 
-                console.log(result.user)
+                toast.success('Registerd Successfull')
             })
             .catch(err => {
                 setError(err.message)
@@ -37,7 +38,7 @@ const Register = () => {
     const handleGoogleSignin = () => {
         googleSignIn()
             .then(result => {
-                console.log(result.user)
+                toast.success('Registerd Successfull')
             })
             .then(error => {
                 setError(error.message);

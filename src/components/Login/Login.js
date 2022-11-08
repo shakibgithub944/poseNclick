@@ -1,4 +1,6 @@
 import React, { useContext, useState } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom';
 import { authContext } from '../../UserContext/UserContext';
 
@@ -15,6 +17,7 @@ const Login = () => {
             .then(result => {
                 console.log(result.user);
                 form.reset();
+                toast.success('Login Successfull')
             })
             .catch(err => {
                 setError(err.message)
@@ -26,6 +29,7 @@ const Login = () => {
         googleSignIn()
             .then(result => {
                 console.log(result.user)
+                toast.success('Login Successfull')
             })
             .then(error => {
                 setError(error.message);
