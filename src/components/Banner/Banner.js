@@ -4,19 +4,14 @@ import banner from '../asset/banner.jpg';
 const Banner = () => {
     return (
         <div className=''>
-            <div className="relative w-full h-screen">
-                {/* <img
-                    src={banner}
-                    className="absolute inset-0 object-cover w-full h-full"
-                    alt=""
-                /> */}
-                <img
-                    src="https://images.pexels.com/photos/3747463/pexels-photo-3747463.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
-                    className="absolute inset-0 object-cover w-full h-full"
-                    alt=""
-                />
-                <div className="relative bg-gray-900 bg-opacity-75 h-screen flex items-center justify-center">
-                    <h1 className='text-white me-auto text-6xl'>this is header</h1>
+            <div className="hero min-h-screen" style={{ backgroundImage: `url("https://placeimg.com/1000/800/arch")` }}>
+                <div className="hero-overlay bg-opacity-60"></div>
+                <div className="hero-content text-center text-neutral-content">
+                    <div className="max-w-md">
+                        <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
+                        <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                        <button className="btn btn-primary">Get Started</button>
+                    </div>
                 </div>
             </div>
         </div>
