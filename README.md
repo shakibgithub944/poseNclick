@@ -12,8 +12,9 @@ Loged in user see more beautiful functionality.
 3. Firebase authentication
 4. Jwt technology
 ---
-* Some Special Features
+* Some Special Features.
+
 Without logedin the user cannot see any service review and can not able to give a review . If the user login He/she can see all functionality.
 ---
 * This website gives you so many beautifull exprience.
- 
+

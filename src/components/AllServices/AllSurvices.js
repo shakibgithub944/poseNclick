@@ -10,7 +10,7 @@ const AllSurvices = () => {
     return (
         <div>
             <div className='text-center text-4xl m-5 text-gray-400'><h1>-------------All Service Here------------</h1></div>
-            <div className='m-12 grid grid-cols-3 gap-5'>
+            <div className='m-12 lg:grid grid-cols-3 gap-5'>
 
                 {
                     allServices.map(service => <div

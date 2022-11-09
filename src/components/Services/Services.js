@@ -20,7 +20,7 @@ const Services = () => {
                 <div className='text-center text-4xl m-5 text-gray-400'>------------------Services---------------</div>
 
 
-                    <div className=' grid grid-cols-3 gap-3'>
+                    <div className=' lg:grid grid-cols-3 gap-3'>
                         {
                             services.map(service => <div
                                 className="card w-96 glass shadow-lg"

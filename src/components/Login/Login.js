@@ -54,7 +54,7 @@ const Login = () => {
         googleSignIn()
             .then(result => {
                 console.log(result.user)
-                
+
                 navigate(from, { replace: true })
                 toast.success('Login Successfull')
             })
@@ -71,7 +71,7 @@ const Login = () => {
                     <h1 className="text-2xl font-bold text-center text-black">Login</h1>
                     <form onSubmit={handleLogIn} action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
                         <div className="space-y-1 text-sm">
-                            <label htmlFor="username" className="block dark:text-gray-400">Username</label>
+                            <label htmlFor="username" className="block dark:text-gray-400">Email</label>
                             <input type="email" name="email" id="username" placeholder="Email" className="w-full px-4 py-3 rounded-md border border-gray-700 text-black focus:border-violet-400" />
                         </div>
                         <div className="space-y-1 text-sm">

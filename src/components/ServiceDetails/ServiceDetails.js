@@ -10,14 +10,12 @@ const ServiceDetails = () => {
     useTitle('Service Details')
     const [reviews, setReview] = useState([])
     const serviceDetails = useLoaderData();
-    // console.log(serviceDetails);
     const { user } = useContext(authContext);
 
     useEffect(() => {
         fetch(`https://pose-n-click-server.vercel.app/all-reviews?service=${serviceDetails._id}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 setReview(data);
             })
     }, [serviceDetails._id])
@@ -46,8 +44,13 @@ const ServiceDetails = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                if (data.acknowledged) {
+                    const newReview = [...reviews, review]
+                    console.log(newReview)
+                    setReview(newReview)
+                }
                 form.reset()
+                
             })
             .catch(err => console.log(err))
 
@@ -75,43 +78,43 @@ const ServiceDetails = () => {
             </div>
 
             {
-                user?.email?
-                <div className='m-12 grid grid-cols-2 gap-5'>
-                <div className='border grid grid-cols-2 gap-5'>
+                user?.email ?
+                    <div className='m-12 lg:grid grid-cols-2 gap-5'>
+                        <div className='border grid grid-cols-2 gap-5'>
 
-                    {
-                        reviews.map(review => <div
-                            key={review._id}
-                            className='flex items-center p-3'
-                        >
-                            <div className='h-8 w-8 m-3 '><img className='rounded-full' src={review.picture} alt="" /></div>
-                            <div>
-                                <p className='font-bold'>{review.name}</p>
-                                <p className=''>{review.message}</p>
-                            </div>
-                        </div>)
-                    }
+                            {
+                                reviews.map(review => <div
+                                    key={review._id}
+                                    className='flex items-center p-3'
+                                >
+                                    <div className='h-8 w-8 m-3 '><img className='rounded-full' src={review.picture} alt="" /></div>
+                                    <div>
+                                        <p className='font-bold'>{review.name}</p>
+                                        <p className=''>{review.message}</p>
+                                    </div>
+                                </div>)
+                            }
 
-                </div>
-                <div>
-                    <form onSubmit={handleFormSubmit}>
-                        <div className="space-y-1 text-sm">
-                            <label htmlFor="username" className="block dark:text-gray-400">Email</label>
-                            <input type="email" name="email" defaultValue={user?.email} id="username" placeholder="Email" className="w-full px-4 py-3 rounded-md border border-gray-700 text-black focus:border-violet-400" readOnly />
                         </div>
-                        <div className="space-y-1 text-sm mt-4">
-                            <label htmlFor="" className="block dark:text-gray-400">Type Your Review</label>
-                            <textarea type="text" name="review" id="username" placeholder="Type your message" className="w-full px-4 py-3 rounded-md border border-gray-700 text-black focus:border-violet-400" />
+                        <div>
+                            <form onSubmit={handleFormSubmit}>
+                                <div className="space-y-1 text-sm">
+                                    <label htmlFor="username" className="block dark:text-gray-400">Email</label>
+                                    <input type="email" name="email" defaultValue={user?.email} id="username" placeholder="Email" className="w-full px-4 py-3 rounded-md border border-gray-700 text-black focus:border-violet-400" readOnly />
+                                </div>
+                                <div className="space-y-1 text-sm mt-4">
+                                    <label htmlFor="" className="block dark:text-gray-400">Type Your Review</label>
+                                    <textarea type="text" name="review" id="username" placeholder="Type your message" className="w-full px-4 py-3 rounded-md border border-gray-700 text-black focus:border-violet-400" />
+                                </div>
+                                <button className='btn'>Send</button>
+                            </form>
                         </div>
-                        <button className='btn'>Send</button>
-                    </form>
-                </div>
-            </div>
-                : 
-                
-                <div className='text-center m-24'>
-                    <h1 className='text-4xl'> Please <Link className='underline text-blue-400' to='/login'>Login</Link>  to add a review</h1>
-                </div>
+                    </div>
+                    :
+
+                    <div className='text-center m-24'>
+                        <h1 className='text-4xl'> Please <Link className='underline text-blue-400' to='/login'>Login</Link>  to add a review</h1>
+                    </div>
             }
 
         </div>

@@ -10,7 +10,7 @@ function App() {
     <PhotoProvider>
       <div className="">
       <RouterProvider router={router}></RouterProvider>
-      <ToastContainer position='top-center' ></ToastContainer>
+      <ToastContainer position='top-center'autoClose={3000} ></ToastContainer>
     </div>
     </PhotoProvider>
   );

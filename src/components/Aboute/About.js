@@ -4,7 +4,7 @@ import about from '../asset/about.jpg'
 const About = () => {
     return (
         <div>
-            <div className=" border w-full grid grid-cols-2 gap-4 mt-5 card lg:card-side bg-base-100 p-5 ">
+            <div className=" border w-full lg:grid grid-cols-2 gap-4 mt-5 card lg:card-side bg-base-100 p-5 ">
                 <div>
                     <figure><img className='rounded ' src={about} alt="Album" /></figure>
                 </div>

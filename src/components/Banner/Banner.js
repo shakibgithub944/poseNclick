@@ -10,9 +10,9 @@ const Banner = () => {
                 <div className="hero-overlay bg-opacity-40"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-md">
-                        <h1 className="mb-4 text-5xl font-bold">Make Memory With Us</h1>
+                        <h1 className="mb-4 text-5xl font-bold">Make Memory With <span className='text-yellow-300'>Pose-N-Click</span></h1>
                         <p className="mb-5">Premium Wedding Photography and Cinematography.</p>
-                        <Link to='/services'><button className="btn btn-primary">Services</button></Link>
+                        <Link to='/services'><button className="btn btn-primary">Get Start</button></Link>
                     </div>
                 </div>
             </div>

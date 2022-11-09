@@ -7,13 +7,11 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Navber = () => {
     const { user, logOutUser } = useContext(authContext);
-    // console.log(user)
 
     const handleLogOut = () => {
         logOutUser()
             .then(() => {
-                toast.error('You are logout');
-
+                // toast.error('You are logout');
             })
             .catch(() => { })
     }
@@ -30,6 +28,13 @@ const Navber = () => {
                             <li><Link to='/home'>Home</Link></li>
                             <li><Link to='/services'>Services</Link> </li>
                             <li><Link to='/blog'>Blog</Link> </li>
+                            {
+                                user?.uid ? <ul className="menu menu-horizontal p-0">
+                                    <li><Link to='/myReview'>My Reviews</Link> </li>
+                                    <li><Link to='/addservice'>Add Service</Link> </li>
+                                </ul>
+                                    : ''
+                            }
                         </ul>
                     </div>
                     <div className='flex items-center'>
