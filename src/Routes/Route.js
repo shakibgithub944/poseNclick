@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import AddService from "../components/AddService/AddService";
 import AllSurvices from "../components/AllServices/AllSurvices";
 import Blog from "../components/Blog/Blog";
 import Home from "../components/Home/Home";
@@ -6,6 +7,7 @@ import Login from "../components/Login/Login";
 import Root from "../components/Main/Root";
 import MyReviews from "../components/MyReviews/MyReviews";
 import Register from "../components/Register/Register";
+import ReviewUpdate from "../components/ReviewUpdate/ReviewUpdate";
 import ServiceDetails from "../components/ServiceDetails/ServiceDetails";
 import Services from "../components/Services/Services";
 
@@ -26,6 +28,7 @@ const router = createBrowserRouter([
                 path: '/blog',
                 element: <Blog></Blog>
             },
+
             {
                 path: '/services',
                 element: <AllSurvices></AllSurvices>,
@@ -41,8 +44,12 @@ const router = createBrowserRouter([
                 }
             },
             {
-                path:'/myReview',
-                element:<MyReviews></MyReviews>
+                path: '/myReview',
+                element: <MyReviews></MyReviews>
+            },
+            {
+                path:'/addservice',
+                element:<AddService></AddService>
             },
             {
                 path: '/login',
@@ -52,6 +59,13 @@ const router = createBrowserRouter([
                 path: '/register',
                 element: <Register></Register>
             },
+            {
+                path: '/reviews/:id',
+                element: <ReviewUpdate></ReviewUpdate>,
+                loader: ({ params }) => {
+                    return fetch(`http://localhost:5000/reviews/${params.id}`)
+                }
+            }
         ]
     }
 ])

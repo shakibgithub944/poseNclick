@@ -45,7 +45,7 @@ const Navber = () => {
                         {
                             user?.uid ? <ul className="menu menu-horizontal p-0">
                                 <li><Link to='/myReview'>My Reviews</Link> </li>
-                                <li><Link to='/'>Add Service</Link> </li>
+                                <li><Link to='/addservice'>Add Service</Link> </li>
                             </ul>
                                 : ''
                         }
