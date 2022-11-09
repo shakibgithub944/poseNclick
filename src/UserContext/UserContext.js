@@ -9,7 +9,8 @@ const googleProvider = new GoogleAuthProvider();
 
 const UserContext = ({ children }) => {
     const [user, setUser] = useState('');
-    const [loading, setLoading]=useState(true)
+    console.log(user);
+    const [loading, setLoading] = useState(true)
 
 
     // sign up
@@ -41,9 +42,9 @@ const UserContext = ({ children }) => {
         signOut(auth)
     }
     const updateUser = (name, photourl) => {
-       return updateProfile(auth.currentUser, {
-        displayName: name, photoURL: photourl
-      })
+        return updateProfile(auth.currentUser, {
+            displayName: name, photoURL: photourl
+        })
     }
 
     const authInfo = {

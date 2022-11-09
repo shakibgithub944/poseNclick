@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import AddService from "../components/AddService/AddService";
 import AllSurvices from "../components/AllServices/AllSurvices";
 import Blog from "../components/Blog/Blog";
+import Error from "../components/Error/Error";
 import Home from "../components/Home/Home";
 import Login from "../components/Login/Login";
 import Root from "../components/Main/Root";
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
     {
         path: '/',
         element: <Root></Root>,
+        errorElement: <Error></Error>,
         children: [
             {
                 path: '/',
@@ -49,8 +51,8 @@ const router = createBrowserRouter([
                 element: <PrivetRoute><MyReviews></MyReviews></PrivetRoute>
             },
             {
-                path:'/addservice',
-                element:<PrivetRoute><AddService></AddService></PrivetRoute>
+                path: '/addservice',
+                element: <PrivetRoute><AddService></AddService></PrivetRoute>
             },
             {
                 path: '/login',
