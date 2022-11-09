@@ -9,7 +9,7 @@ const PrivetRoute = ({ children }) => {
     console.log(user);
 
     if (loading) {
-        return <div>loading........</div>
+        return <div className=" text-center w-16 h-16 border-4 border-dashed rounded-full animate-spin border-violet-400"></div>
     }
 
     if (user && user.email) {
