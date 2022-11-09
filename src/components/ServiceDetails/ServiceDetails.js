@@ -76,12 +76,10 @@ const ServiceDetails = () => {
                     </div>
                 </div>
             </div>
-
             {
                 user?.email ?
                     <div className='m-12 lg:grid grid-cols-2 gap-5'>
                         <div className='border grid grid-cols-2 gap-5'>
-
                             {
                                 reviews.map(review => <div
                                     key={review._id}
