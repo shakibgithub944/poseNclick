@@ -6,6 +6,7 @@ import Home from "../components/Home/Home";
 import Login from "../components/Login/Login";
 import Root from "../components/Main/Root";
 import MyReviews from "../components/MyReviews/MyReviews";
+import PrivetRoute from "../components/PrivetRoute/PrivetRoute";
 import Register from "../components/Register/Register";
 import ReviewUpdate from "../components/ReviewUpdate/ReviewUpdate";
 import ServiceDetails from "../components/ServiceDetails/ServiceDetails";
@@ -45,11 +46,11 @@ const router = createBrowserRouter([
             },
             {
                 path: '/myReview',
-                element: <MyReviews></MyReviews>
+                element: <PrivetRoute><MyReviews></MyReviews></PrivetRoute>
             },
             {
                 path:'/addservice',
-                element:<AddService></AddService>
+                element:<PrivetRoute><AddService></AddService></PrivetRoute>
             },
             {
                 path: '/login',

@@ -1,4 +1,5 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 
 const AddService = () => {
 
@@ -26,6 +27,9 @@ const AddService = () => {
         })
             .then(res => res.json())
             .then(data => {
+                if(data.acknowledged){
+                    toast.success('Service Successfully Added.')
+                }
                 console.log(data)
                 form.reset()
             })
@@ -34,7 +38,7 @@ const AddService = () => {
     }
 
     return (
-        <div className='grid grid-cols-3 gap-5'>
+        <div className='grid grid-cols-3 gap-5 m-12'>
             <div></div>
             <div>
                 <form onSubmit={handleAddService}>

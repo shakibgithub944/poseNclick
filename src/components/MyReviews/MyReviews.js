@@ -6,13 +6,13 @@ import ReviewRow from '../ReviewRow/ReviewRow';
 const MyReviews = () => {
     const [reviews, setReview] = useState([]);
     const { user } = useContext(authContext);
-
+    // console.log(reviews)
     useEffect(() => {
         fetch(`http://localhost:5000/all-reviews/email?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setReview(data)
-                // console.log(data);
+                console.log(data);
             })
     }, [user?.email])
 
@@ -35,30 +35,36 @@ const MyReviews = () => {
 
     return (
         <div>
-            <div className="overflow-x-auto p-12">
-                <table className="table w-full">
+            {
+                reviews.length ?
+                    <div className="overflow-x-auto p-12">
+                        <table className="table w-full">
 
-                    <thead>
-                        <tr>
-                            <th>Services</th>
-                            <th>Name</th>
-                            <th>Your Comments</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                            <thead>
+                                <tr>
+                                    <th>Services</th>
+                                    <th>Name</th>
+                                    <th>Your Comments</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-                        {
-                            reviews.map(review => <ReviewRow
-                                key={review._id}
-                                review={review}
-                                handleDelete={handleDelete}
-                            ></ReviewRow>)
-                        }
+                                {
+                                    reviews.map(review => <ReviewRow
+                                        key={review._id}
+                                        review={review}
+                                        handleDelete={handleDelete}
+                                    ></ReviewRow>)
+                                }
 
-                    </tbody>
-                </table>
-            </div>
+                            </tbody>
+                        </table>
+                    </div>
+                    :
+                    <div className='text-center m-24 h-screen'><h1 className='text-4xl'>No reviews were added.</h1></div>
+            }
+
         </div>
     );
 };

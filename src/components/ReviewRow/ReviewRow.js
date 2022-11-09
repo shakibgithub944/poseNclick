@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 const ReviewRow = ({ review, handleDelete }) => {
     const { _id, name, service, message, } = review;
+
     const [serviceData, setServiceData] = useState({});
     useEffect(() => {
         fetch(`http://localhost:5000/all-services/${service}`)

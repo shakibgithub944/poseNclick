@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { authContext } from '../../UserContext/UserContext';
@@ -72,7 +72,9 @@ const ServiceDetails = () => {
                 </div>
             </div>
 
-            <div className='m-12 grid grid-cols-2 gap-5'>
+            {
+                user?.email?
+                <div className='m-12 grid grid-cols-2 gap-5'>
                 <div className='border grid grid-cols-2 gap-5'>
 
                     {
@@ -103,6 +105,12 @@ const ServiceDetails = () => {
                     </form>
                 </div>
             </div>
+                : 
+                
+                <div className='text-center m-24'>
+                    <h1 className='text-4xl'>To see other reviews, You need to <Link className='underline text-blue-400' to='/login'>Login</Link> first</h1>
+                </div>
+            }
 
         </div>
     );
