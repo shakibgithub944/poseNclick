@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { authContext } from '../../UserContext/UserContext';
+import ReviewRow from '../ReviewRow/ReviewRow';
 
 const MyReviews = () => {
     const [reviews, setReview] = useState([]);
@@ -10,6 +11,7 @@ const MyReviews = () => {
             .then(res => res.json())
             .then(data => {
                 setReview(data)
+                console.log(data);
             })
     }, [user?.email])
 
@@ -20,7 +22,7 @@ const MyReviews = () => {
 
                     <thead>
                         <tr>
-                            <th></th>
+                            <th>Services</th>
                             <th>Name</th>
                             <th>Your Comments</th>
                             <th>Action</th>
@@ -29,17 +31,10 @@ const MyReviews = () => {
                     <tbody>
 
                         {
-                            reviews.map(review => <tr
+                            reviews.map(review => <ReviewRow
                                 key={review._id}
-                            >
-                                <th>$</th>
-                                <td>{review.name}</td>
-                                <td>{review.message}</td>
-                                <div className='flex items-center'>
-                                    <p className='btn btn-outline'>Edit</p>
-                                    <p className='btn btn-outline ml-2 text-red-500'>Delete</p>
-                                </div>
-                            </tr>)
+                                review={review}
+                            ></ReviewRow>)
                         }
 
                     </tbody>
