@@ -14,7 +14,7 @@ const ServiceDetails = () => {
     const { user } = useContext(authContext);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/all-reviews?service=${serviceDetails._id}`)
+        fetch(`https://pose-n-click-server.vercel.app/all-reviews?service=${serviceDetails._id}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -37,7 +37,7 @@ const ServiceDetails = () => {
             picture,
             message
         }
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://pose-n-click-server.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

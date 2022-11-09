@@ -36,14 +36,14 @@ const router = createBrowserRouter([
                 path: '/services',
                 element: <AllSurvices></AllSurvices>,
                 loader: () => {
-                    return fetch('http://localhost:5000/all-services');
+                    return fetch('https://pose-n-click-server.vercel.app/all-services');
                 }
             },
             {
                 path: '/service/:id',
                 element: <ServiceDetails></ServiceDetails>,
                 loader: ({ params }) => {
-                    return fetch(`http://localhost:5000/all-services/${params.id}`)
+                    return fetch(`https://pose-n-click-server.vercel.app/all-services/${params.id}`)
                 }
             },
             {
@@ -66,7 +66,7 @@ const router = createBrowserRouter([
                 path: '/reviews/:id',
                 element: <ReviewUpdate></ReviewUpdate>,
                 loader: ({ params }) => {
-                    return fetch(`http://localhost:5000/reviews/${params.id}`)
+                    return fetch(`https://pose-n-click-server.vercel.app/reviews/${params.id}`)
                 }
             }
         ]

@@ -10,7 +10,7 @@ const MyReviews = () => {
     const { user } = useContext(authContext);
     // console.log(reviews)
     useEffect(() => {
-        fetch(`http://localhost:5000/all-reviews/email?email=${user?.email}`, {
+        fetch(`https://pose-n-click-server.vercel.app/all-reviews/email?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('token')}`
             }
@@ -23,7 +23,7 @@ const MyReviews = () => {
     }, [user?.email])
 
     const handleDelete = id => {
-        fetch(`http://localhost:5000/reviews/${id}`, {
+        fetch(`https://pose-n-click-server.vercel.app/reviews/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

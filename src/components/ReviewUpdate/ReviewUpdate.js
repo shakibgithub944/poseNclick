@@ -16,7 +16,7 @@ const ReviewUpdate = () => {
         // const message = form.name.value;
         console.log(message , id);
 
-        // fetch(`http://localhost:5000/reviews/${id}`, {
+        // fetch(`https://pose-n-click-server.vercel.app/reviews/${id}`, {
         //     method: 'PUT',
         //     headers: {
         //         'content-type': 'application/json'
