@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import posenclick from '../asset/posenclick.png'
 
 const Footer = () => {
@@ -6,8 +7,8 @@ const Footer = () => {
     <div>
       <footer className="footer p-10 bg-base-200 text-base-content">
         <div>
-          <img src={posenclick} className='h-28' alt="" />
-          <p>ACME Industries Ltd.<br />Providing reliable tech since 1992</p>
+          <Link to='/'><img src={posenclick} className='h-28' alt="" /></Link>
+          <p>Pose-N-Click<br />Providing Photography service since 1992</p>
         </div>
         <div>
           <span className="footer-title">Company</span>

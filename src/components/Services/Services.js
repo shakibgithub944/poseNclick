@@ -23,7 +23,7 @@ const Services = () => {
                     <div className=' grid grid-cols-3 gap-3'>
                         {
                             services.map(service => <div
-                                className="card w-96 glass"
+                                className="card w-96 glass shadow-lg"
                                 key={service._id}
                             >
                                 <PhotoView key={service._id} src={service.picture}>

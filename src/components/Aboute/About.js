@@ -4,9 +4,9 @@ import about from '../asset/about.jpg'
 const About = () => {
     return (
         <div>
-            <div className="w-full grid grid-cols-2 gap-4 mt-5 card lg:card-side bg-base-100 p-5 ">
+            <div className=" border w-full grid grid-cols-2 gap-4 mt-5 card lg:card-side bg-base-100 p-5 ">
                 <div>
-                    <figure><img className='rounded' src={about} alt="Album" /></figure>
+                    <figure><img className='rounded ' src={about} alt="Album" /></figure>
                 </div>
                 <div className="card-body">
                     <h2 className="card-title">Aboute Me</h2>

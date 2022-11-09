@@ -14,11 +14,11 @@ const AllSurvices = () => {
 
                 {
                     allServices.map(service => <div
-                        className="card w-96 glass"
+                        className="card w-96 glass shadow-lg"
                         key={service._id}
                     >
                         <PhotoView key={service._id} src={service.picture}>
-                            <img  className='h-72 w-full' src={service.picture} alt="car!" />
+                            <img className='h-72 w-full' src={service.picture} alt="car!" />
                         </PhotoView>
                         <div className="card-body">
                             <h2 className="card-title">{service.name}</h2>
