@@ -3,8 +3,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { authContext } from '../../UserContext/UserContext';
+import useTitle from '../../Hooks/UseTitle';
 
 const Register = () => {
+    useTitle('Register')
     const [error, setError] = useState('');
     const { createUser, updateUser, googleSignIn } = useContext(authContext);
 

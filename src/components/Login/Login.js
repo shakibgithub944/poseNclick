@@ -3,8 +3,10 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { authContext } from '../../UserContext/UserContext';
+import useTitle from '../../Hooks/UseTitle';
 
 const Login = () => {
+    useTitle('login')
     const [error, setError] = useState('');
     const { loginUser, googleSignIn } = useContext(authContext);
 
@@ -17,12 +19,30 @@ const Login = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
+
         loginUser(email, password)
             .then(result => {
                 console.log(result.user);
                 form.reset();
+                const currentUser = {
+                    email: result.user.email,
+                }
+                // jwt token 
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        localStorage.setItem('token', data.token)
+                        navigate(from, { replace: true })
+                    })
+
                 toast.success('Login Successfull')
-                navigate(from, { replace: true })
             })
             .catch(err => {
                 setError(err.message)
@@ -34,6 +54,7 @@ const Login = () => {
         googleSignIn()
             .then(result => {
                 console.log(result.user)
+                
                 navigate(from, { replace: true })
                 toast.success('Login Successfull')
             })

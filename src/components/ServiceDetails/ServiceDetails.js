@@ -2,10 +2,12 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useTitle from '../../Hooks/UseTitle';
 import { authContext } from '../../UserContext/UserContext';
 
 
 const ServiceDetails = () => {
+    useTitle('Service Details')
     const [reviews, setReview] = useState([])
     const serviceDetails = useLoaderData();
     // console.log(serviceDetails);

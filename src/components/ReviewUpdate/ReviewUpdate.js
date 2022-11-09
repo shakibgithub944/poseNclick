@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../../Hooks/UseTitle';
 
 const ReviewUpdate = () => {
+    useTitle('Edit Review')
     const data = useLoaderData();
     // console.log(data._id);
 
@@ -14,18 +16,18 @@ const ReviewUpdate = () => {
         // const message = form.name.value;
         console.log(message , id);
 
-        fetch(`http://localhost:5000/reviews/${id}`, {
-            method: 'PUT',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(message),
+        // fetch(`http://localhost:5000/reviews/${id}`, {
+        //     method: 'PUT',
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify(message),
 
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-            })
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         console.log(data)
+        //     })
 
     }
 
