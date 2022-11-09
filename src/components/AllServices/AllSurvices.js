@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import { PhotoView } from 'react-photo-view';
 
 const AllSurvices = () => {
     const allServices = useLoaderData();
@@ -14,7 +15,9 @@ const AllSurvices = () => {
                         className="card w-96 glass"
                         key={service._id}
                     >
-                        <figure><img src={service.picture} alt="" className='h-72 w-full' /></figure>
+                        <PhotoView key={service._id} src={service.picture}>
+                            <img  className='h-72 w-full' src={service.picture} alt="car!" />
+                        </PhotoView>
                         <div className="card-body">
                             <h2 className="card-title">{service.name}</h2>
                             <p>Duration:{service.duration}</p>
