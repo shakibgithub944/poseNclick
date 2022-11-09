@@ -108,7 +108,7 @@ const ServiceDetails = () => {
                 : 
                 
                 <div className='text-center m-24'>
-                    <h1 className='text-4xl'>To see other reviews, You need to <Link className='underline text-blue-400' to='/login'>Login</Link> first</h1>
+                    <h1 className='text-4xl'> Please <Link className='underline text-blue-400' to='/login'>Login</Link>  to add a review</h1>
                 </div>
             }
 
