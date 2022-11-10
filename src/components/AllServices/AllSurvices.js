@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { PhotoView } from 'react-photo-view';
 import useTitle from '../../Hooks/UseTitle';
+import Loader from '../Loader/Loader';
 
 const AllSurvices = () => {
     useTitle('Services')
@@ -24,7 +25,7 @@ const AllSurvices = () => {
     }, [])
 
     if (isLoading) {
-        return <div className=" mx-auto w-16 h-16 border-4 border-dashed rounded-full animate-spin border-gray-400"></div>
+        return <Loader></Loader>
     }
 
     return (
