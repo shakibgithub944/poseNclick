@@ -54,9 +54,26 @@ const Login = () => {
         googleSignIn()
             .then(result => {
                 console.log(result.user)
+                const currentUser = {
+                    email: result.user.email,
+                }
+                // jwt token 
+                fetch('https://pose-n-click-server.vercel.app/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        localStorage.setItem('token', data.token)
+                        navigate(from, { replace: true })
+                    })
 
-                navigate(from, { replace: true })
                 toast.success('Login Successfull')
+
             })
             .then(error => {
                 setError(error.message);
