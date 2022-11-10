@@ -7,7 +7,7 @@ const Banner = () => {
         <div className=''>
             <div className="hero min-h-screen">
                 <img src={love4} className='w-full' style={{height:'100vh'}} alt="" />
-                <div className="hero-overlay bg-opacity-40"></div>
+                <div className="hero-overlay bg-opacity-20"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-md">
                         <h1 className="mb-4 text-5xl font-bold">Make Memory With <span className='text-yellow-300'>Pose-N-Click</span></h1>

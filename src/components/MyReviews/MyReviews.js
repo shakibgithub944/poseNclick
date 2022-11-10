@@ -11,6 +11,7 @@ const MyReviews = () => {
     // console.log(reviews)
     useEffect(() => {
         fetch(`https://pose-n-click-server.vercel.app/all-reviews/email?email=${user?.email}`, {
+            // https://pose-n-click-server.vercel.app
             headers: {
                 authorization: `Bearer ${localStorage.getItem('token')}`
             }

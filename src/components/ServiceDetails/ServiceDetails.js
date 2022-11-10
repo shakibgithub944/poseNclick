@@ -78,12 +78,15 @@ const ServiceDetails = () => {
             </div>
             {
                 user?.email ?
-                    <div className='m-12 lg:grid grid-cols-2 gap-5'>
-                        <div className='border grid grid-cols-2 gap-5'>
+                
+                    <div>
+                        <h1 className='ml-12 font-bold'>Coustomers Reviews:</h1>
+                        <div className='ml-12 lg:grid grid-cols-2 gap-5'>
+                        <div className='border grid grid-cols-1 gap-5 p-8'>
                             {
                                 reviews.map(review => <div
                                     key={review._id}
-                                    className='flex items-center p-3'
+                                    className='flex items-center justify-center p-3 w-64 shadow-lg'
                                 >
                                     <div className='h-8 w-8 m-3 '><img className='rounded-full' src={review.picture} alt="" /></div>
                                     <div>
@@ -94,7 +97,7 @@ const ServiceDetails = () => {
                             }
 
                         </div>
-                        <div>
+                        <div className=''>
                             <form onSubmit={handleFormSubmit}>
                                 <div className="space-y-1 text-sm">
                                     <label htmlFor="username" className="block dark:text-gray-400">Email</label>
@@ -107,6 +110,7 @@ const ServiceDetails = () => {
                                 <button className='btn'>Send</button>
                             </form>
                         </div>
+                    </div>
                     </div>
                     :
 

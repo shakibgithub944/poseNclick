@@ -27,7 +27,7 @@ const Services = () => {
                                 key={service._id}
                             >
                                 <PhotoView key={service._id} src={service.picture}>
-                                <img src={service.picture} alt="car!" />                                  
+                                <img className='h-80' src={service.picture} alt="car!" />                                  
                                 </PhotoView>
                                 <div className="card-body">
                                     <h2 className="card-title">{service.name}</h2>

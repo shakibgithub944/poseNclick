@@ -64,7 +64,7 @@ const Login = () => {
     }
 
     return (
-        <div className='grid grid-cols-3 gap-5 m-12'>
+        <div className='lg:grid grid-cols-3 gap-5 m-12'>
             <div></div>
             <div>
                 <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:text-gray-100 border">

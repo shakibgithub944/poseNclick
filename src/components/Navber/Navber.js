@@ -18,7 +18,7 @@ const Navber = () => {
 
     return (
         <div>
-            <div className="navbar text-black">
+            <div className="navbar text-black bg-opacity-40">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
