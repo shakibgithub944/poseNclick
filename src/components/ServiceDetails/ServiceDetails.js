@@ -46,11 +46,11 @@ const ServiceDetails = () => {
             .then(data => {
                 if (data.acknowledged) {
                     const newReview = [...reviews, review]
-                    console.log(newReview)
+                    // console.log(newReview)
                     setReview(newReview)
                 }
                 form.reset()
-                
+
             })
             .catch(err => console.log(err))
 
@@ -78,39 +78,39 @@ const ServiceDetails = () => {
             </div>
             {
                 user?.email ?
-                
+
                     <div>
                         <h1 className='ml-12 font-bold'>Coustomers Reviews:</h1>
                         <div className='ml-12 lg:grid grid-cols-2 gap-5'>
-                        <div className='border grid grid-cols-1 gap-5 p-8'>
-                            {
-                                reviews.map(review => <div
-                                    key={review._id}
-                                    className='flex items-center justify-center p-3 w-64 shadow-lg'
-                                >
-                                    <div className='h-8 w-8 m-3 '><img className='rounded-full' src={review.picture} alt="" /></div>
-                                    <div>
-                                        <p className='font-bold'>{review.name}</p>
-                                        <p className=''>{review.message}</p>
-                                    </div>
-                                </div>)
-                            }
+                            <div className='border grid grid-cols-1 gap-5 p-8'>
+                                {
+                                    reviews.map(review => <div
+                                        key={review._id}
+                                        className='flex items-center justify-center p-3 w-64 shadow-lg'
+                                    >
+                                        <div className='h-8 w-8 m-3 '><img className='rounded-full' src={review.picture} alt="" /></div>
+                                        <div>
+                                            <p className='font-bold'>{review.name}</p>
+                                            <p className=''>{review.message}</p>
+                                        </div>
+                                    </div>)
+                                }
 
+                            </div>
+                            <div className=''>
+                                <form onSubmit={handleFormSubmit}>
+                                    <div className="space-y-1 text-sm">
+                                        <label htmlFor="username" className="block dark:text-gray-400">Email</label>
+                                        <input type="email" name="email" defaultValue={user?.email} id="username" placeholder="Email" className="w-full px-4 py-3 rounded-md border border-gray-700 text-black focus:border-violet-400" readOnly />
+                                    </div>
+                                    <div className="space-y-1 text-sm mt-4">
+                                        <label htmlFor="" className="block dark:text-gray-400">Type Your Review</label>
+                                        <textarea type="text" name="review" id="username" placeholder="Type your message" className="w-full px-4 py-3 rounded-md border border-gray-700 text-black focus:border-violet-400" />
+                                    </div>
+                                    <button className='btn'>Send</button>
+                                </form>
+                            </div>
                         </div>
-                        <div className=''>
-                            <form onSubmit={handleFormSubmit}>
-                                <div className="space-y-1 text-sm">
-                                    <label htmlFor="username" className="block dark:text-gray-400">Email</label>
-                                    <input type="email" name="email" defaultValue={user?.email} id="username" placeholder="Email" className="w-full px-4 py-3 rounded-md border border-gray-700 text-black focus:border-violet-400" readOnly />
-                                </div>
-                                <div className="space-y-1 text-sm mt-4">
-                                    <label htmlFor="" className="block dark:text-gray-400">Type Your Review</label>
-                                    <textarea type="text" name="review" id="username" placeholder="Type your message" className="w-full px-4 py-3 rounded-md border border-gray-700 text-black focus:border-violet-400" />
-                                </div>
-                                <button className='btn'>Send</button>
-                            </form>
-                        </div>
-                    </div>
                     </div>
                     :
 

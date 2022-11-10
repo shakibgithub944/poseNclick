@@ -35,9 +35,6 @@ const router = createBrowserRouter([
             {
                 path: '/services',
                 element: <AllSurvices></AllSurvices>,
-                loader: () => {
-                    return fetch('https://pose-n-click-server.vercel.app/all-services');
-                }
             },
             {
                 path: '/service/:id',

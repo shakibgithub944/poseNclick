@@ -53,7 +53,7 @@ const Login = () => {
     const handleGoogleSignin = () => {
         googleSignIn()
             .then(result => {
-                console.log(result.user)
+                // console.log(result.user)
                 const currentUser = {
                     email: result.user.email,
                 }
@@ -67,7 +67,7 @@ const Login = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data)
+                        // console.log(data)
                         localStorage.setItem('token', data.token)
                         navigate(from, { replace: true })
                     })
